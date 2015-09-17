@@ -11,12 +11,10 @@ public class Main {
 
 	public static void main(String[] args) throws IOException {
 		
-		//Leitura do arquivo de texto contendo a matriz e inicia a classe que executará o algorito de prim
-		
 		try {
 			
 			//Altere o nome do arquivo se necessário aqui
-			BufferedReader dados = new BufferedReader(new FileReader("matriz.txt"));
+			BufferedReader dados = new BufferedReader(new FileReader("matriz2.txt"));
 			
 			System.out.println("Lendo arquivo da matriz de adjacência... ");
 			int quant;
@@ -50,7 +48,7 @@ public class Main {
 				i++;
 
 			}
-			
+			dados.close();
 			System.out.println("Matriz de adjacência: ");
 			for(int m = 0; m < matriz.length; m++){
 				for(int n = 0; n < matriz.length; n++){
@@ -68,6 +66,8 @@ public class Main {
 	        System.out.println("Informe o nó de saída: ");
 	        int destino = scanner.nextInt();
 			
+	        scanner.close();
+	        
 			FordFulkerson algoritmo = new FordFulkerson(quant, matriz, inicio, destino);
 			int fluxoMaximo = algoritmo.run();
 			System.out.println("Fluxo máximo: " + fluxoMaximo);
